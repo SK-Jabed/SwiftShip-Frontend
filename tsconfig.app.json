@@ -7,7 +7,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    "baseUrl": ".",
+    /* Replace baseUrl with rootDir/rootDirs */
+    "rootDir": ".",
+    "rootDirs": ["."],
+
     "paths": {
       "@/*": ["./src/*"]
     },

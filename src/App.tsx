@@ -3,9 +3,12 @@ import CommonLayout from "./components/layout/CommonLayout";
 
 function App() {
   return (
-    <CommonLayout>
-      <Outlet />
-    </CommonLayout>
+    <div>
+      <CommonLayout>
+        {/* <Hero/> */}
+        <Outlet />
+      </CommonLayout>
+    </div>
   );
 }
 

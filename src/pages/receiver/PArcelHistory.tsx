@@ -1,0 +1,97 @@
+import { useIncomingParcelQuery } from "@/redux/feature/parcel/parcel.api";
+import { useGetMeQuery } from "@/redux/feature/user/user.api";
+import { Loader2Icon } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+const PArcelHistory = () => {
+  const { data: user, isLoading } = useGetMeQuery(undefined);
+  const { data: parcels } = useIncomingParcelQuery(user?.data?.user?.phone);
+  if (isLoading) {
+    return <Loader2Icon />;
+  }
+
+  const notConfirmed = parcels?.data?.filter(
+    (parcel: { status: string }) => parcel.status == "CONFIRMED"
+  );
+  // console.log(notConfirmed)
+  return (
+    <div>
+      <div className="border border-muted rounded-lg">
+        <Table className="px-10">
+          <TableHeader className="bg-purple-100 dark:bg-background">
+            <TableRow className="border-2">
+              <TableHead>#</TableHead>
+              <TableHead>Tracking Id</TableHead>
+              <TableHead>Parcel Type</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Sender__Address</TableHead>
+              <TableHead>Updated At</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody className="">
+            {notConfirmed?.map(
+              (
+                item: {
+                  _id: string;
+                  trackingId: string;
+                  status: string;
+                  senderInfo: { name: string; detailAddress: string };
+                  parcelType: string;
+                  trackingEvents: {
+                    updaterId: string;
+                    status: string;
+                    note: string;
+                    createdAt: string;
+                    updatedAt: string;
+                  }[];
+                },
+                index: number
+              ) => (
+                <TableRow key={index}>
+                  <TableCell className="border-2 dark:bg-background bg-orange-50">
+                    {index + 1}
+                  </TableCell>
+                  <TableCell className="border-2 dark:bg-background bg-blue-50">
+                    {item.trackingId}
+                  </TableCell>
+                  <TableCell className="border-2 dark:bg-background bg-gray-50">
+                    {item.parcelType}
+                  </TableCell>
+                  <TableCell className="border-2 dark:bg-background bg-orange-50">
+                    {item.status}
+                  </TableCell>
+                  <TableCell className="border-2 dark:bg-background bg-pink-50">
+                    {item.senderInfo.name}__{item.senderInfo.detailAddress}
+                  </TableCell>
+                  <TableCell className="border-2 dark:bg-background bg-yellow-50">
+                    {new Date(
+                      item.trackingEvents[
+                        item.trackingEvents.length - 1
+                      ].updatedAt
+                    ).toLocaleString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: true,
+                    })}
+                  </TableCell>
+                </TableRow>
+              )
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  );
+};
+
+export default PArcelHistory;
