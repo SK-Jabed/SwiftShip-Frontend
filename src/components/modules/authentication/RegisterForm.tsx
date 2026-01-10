@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -69,6 +68,7 @@ export function RegisterForm() {
       role: "",
     },
   });
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -84,6 +84,7 @@ export function RegisterForm() {
       toast.error("Error occures", error.message);
     }
   }
+  
   return (
     <div className="">
       <Card className="overflow-hidden p-0 ">
