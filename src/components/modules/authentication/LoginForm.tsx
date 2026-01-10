@@ -26,6 +26,8 @@ const formSchema = z.object({
   email: z.email(),
   password: z.string(),
 });
+
+
 export function LoginForm({
   className,
   ...props
@@ -45,6 +47,7 @@ export function LoginForm({
       password: "",
     },
   });
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -64,6 +67,7 @@ export function LoginForm({
       toast.error(error?.data?.message);
     }
   }
+  
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
