@@ -144,6 +144,7 @@ export function CreateParcel() {
     setLoading(true);
 
     // setIsLoading(true)
+
     try {
       // Transform form data to match the exact backend structure
       const data = {
@@ -213,13 +214,8 @@ export function CreateParcel() {
     }
   }
 
-
-
-
   // console.log(divisions)
 
-
-  
   return (
     <Dialog>
       <DialogTrigger asChild>

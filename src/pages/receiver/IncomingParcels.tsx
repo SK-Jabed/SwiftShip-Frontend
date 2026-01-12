@@ -45,8 +45,10 @@ const IncomingParcels = () => {
         phone,
       };
       // console.log(data)
+      
       const res = await confirmDelivery(data).unwrap();
       console.log(res);
+
       // if (res?.data?.success) {
       //     toast.success("Parcel Confirmed")
       // }
