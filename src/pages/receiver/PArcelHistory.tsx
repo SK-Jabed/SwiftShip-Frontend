@@ -13,6 +13,7 @@ import {
 const PArcelHistory = () => {
   const { data: user, isLoading } = useGetMeQuery(undefined);
   const { data: parcels } = useIncomingParcelQuery(user?.data?.user?.phone);
+  
   if (isLoading) {
     return <Loader2Icon />;
   }
@@ -20,7 +21,9 @@ const PArcelHistory = () => {
   const notConfirmed = parcels?.data?.filter(
     (parcel: { status: string }) => parcel.status == "CONFIRMED"
   );
+
   // console.log(notConfirmed)
+
   return (
     <div>
       <div className="border border-muted rounded-lg">

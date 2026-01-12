@@ -43,7 +43,9 @@ const UpdateStatus = () => {
       </div>
     );
   }
+  
   // console.log(parcels?.data)
+
   const handleConfirm = async (id: string) => {
     const newStatus = statusMap[id];
     if (!newStatus) {
