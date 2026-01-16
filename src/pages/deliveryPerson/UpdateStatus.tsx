@@ -28,9 +28,6 @@ import { toast } from "sonner";
 
 const statusFlow = ["PICKED_UP", "IN_TRANSIT", "DELIVERED"];
 
-
-
-
 const UpdateStatus = () => {
   const [statusMap, setStatusMap] = useState<Record<string, string>>({});
   const { data: user, isLoading } = useGetMeQuery(undefined);

@@ -40,7 +40,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useCreateparcelMutation } from "@/redux/feature/parcel/parcel.api";
-
 import {
   useGetAllAreasQuery,
   useGetAllDistrictsQuery,
@@ -64,7 +63,7 @@ export function CreateParcel() {
   const [division, setDivision] = useState<string>("");
   const [district, setDistrict] = useState<string>("");
   const [city, setCity] = useState<string>("");
-  const [, setArea] = useState<string>("");
+  const [ , setArea] = useState<string>("");
   const [receiverDivision, setReceiverDivision] = useState<string>("");
   const [receiverDistrict, setReceiverDistrict] = useState<string>("");
   const [receiverCity, setReceiverCity] = useState<string>("");
@@ -85,13 +84,14 @@ export function CreateParcel() {
   // const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const { data } = useGetMeQuery(undefined);
-  // console.log(data?.data?.user)
+  // console.log(data?.data?.user);
+
   const user = data?.data?.user;
+
   // useEffect(() => {
   //     console.log("division", division)
   //     console.log("districts", district)
   //     console.log("cities", city)
-
   // }, [division, district, city])
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -111,7 +111,6 @@ export function CreateParcel() {
       receiverCity: "",
       receiverArea: "",
       receiverDetailAddress: "",
-
       paymentMethod: "PREPAID" as PaymentMethod,
     },
   });
@@ -141,6 +140,7 @@ export function CreateParcel() {
     const receiverAreaName = receiverAreas?.data?.find(
       (a: { id: string }) => a.id === values.receiverArea
     )?.name;
+    
     setLoading(true);
 
     // setIsLoading(true)
