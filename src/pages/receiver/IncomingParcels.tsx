@@ -59,6 +59,7 @@ const IncomingParcels = () => {
       toast.error(error?.data?.message);
     }
   };
+  
   return (
     <div>
       <div className="border border-muted rounded-lg">
