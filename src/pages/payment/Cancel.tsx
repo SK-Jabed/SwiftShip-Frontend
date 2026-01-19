@@ -105,7 +105,7 @@ const Cancel = () => {
               href="tel:+8801234567890"
               className="text-orange-600 hover:underline"
             >
-              +880 1234-567890
+              +880 1863-646515
             </a>
           </p>
         </div>

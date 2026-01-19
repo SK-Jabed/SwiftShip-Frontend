@@ -32,7 +32,7 @@ const Successed = () => {
           </div>
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-600">Payment Method</span>
-            <span className="text-sm text-gray-900">bKash</span>
+            <span className="text-sm text-gray-900">BKash</span>
           </div>
         </div>
 
@@ -77,7 +77,7 @@ const Successed = () => {
               href="tel:+8801234567890"
               className="text-green-600 hover:underline"
             >
-              +880 1234-567890
+              +880 1863-646515
             </a>
           </p>
         </div>
