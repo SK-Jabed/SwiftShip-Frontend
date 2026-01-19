@@ -27,7 +27,6 @@ const formSchema = z.object({
   password: z.string(),
 });
 
-
 export function LoginForm({
   className,
   ...props

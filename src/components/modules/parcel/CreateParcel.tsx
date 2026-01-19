@@ -200,6 +200,7 @@ export function CreateParcel() {
 
         window.open(res?.data?.paymentURL);
         // setLoading(false)
+        
         toast.success("Parcel created successfully");
         navigate("/dashboard/sender/create-parcel");
         form.reset();
