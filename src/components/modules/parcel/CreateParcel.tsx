@@ -140,7 +140,7 @@ export function CreateParcel() {
     const receiverAreaName = receiverAreas?.data?.find(
       (a: { id: string }) => a.id === values.receiverArea
     )?.name;
-    
+
     setLoading(true);
 
     // setIsLoading(true)
@@ -230,10 +230,7 @@ export function CreateParcel() {
             <CardContent className="p-6 md:p-8 overflow-y-auto max-h-[70vh]">
               <div className="flex flex-col gap-6">
                 {/* <Form {...form}>
-                                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" id="create-parcel-form">
-
-                                       
-                                        <div className="space-y-4">
+                                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" id="create-parcel-form">               <div className="space-y-4">
                                             <div className="text-center space-y-3 pt-8">
                                                 <h1 className="text-3xl md:text-4xl font-bold text-foreground">
                                                     Create New{" "}
