@@ -20,6 +20,7 @@ const IncomingParcels = () => {
   const { data: user, isLoading } = useGetMeQuery(undefined);
   const { data: parcels } = useIncomingParcelQuery(user?.data?.user?.phone);
   const [confirmDelivery] = useConfirmDeliveryMutation(undefined);
+
   if (isLoading) {
     return <Loader2Icon />;
   }
@@ -27,6 +28,7 @@ const IncomingParcels = () => {
   const notConfirmed = parcels?.data?.filter(
     (parcel: { status: string }) => parcel.status !== "CONFIRMED"
   );
+  
   // console.log( notConfirmed)
 
   const handleConfirm = async (item: {
@@ -59,7 +61,7 @@ const IncomingParcels = () => {
       toast.error(error?.data?.message);
     }
   };
-  
+
   return (
     <div>
       <div className="border border-muted rounded-lg">

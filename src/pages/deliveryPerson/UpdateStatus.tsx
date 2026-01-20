@@ -48,10 +48,13 @@ const UpdateStatus = () => {
 
   const handleConfirm = async (id: string) => {
     const newStatus = statusMap[id];
+
     if (!newStatus) {
       return toast.error("Please select a status first");
     }
+
     // console.log(`Update parcel ${id} to status: ${newStatus}`)
+    
     try {
       const parcelId = id;
       const updateData = {
