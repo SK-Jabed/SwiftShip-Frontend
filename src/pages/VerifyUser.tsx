@@ -56,6 +56,7 @@ const VerifyUser = () => {
   //         navigate("/")
   //     }
   // }, [])
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -66,6 +67,7 @@ const VerifyUser = () => {
   const handleSendOTP = async () => {
     toast.success("OTP is sending....");
     setTimer(120);
+
     try {
       setconfimred(true);
       const res = await sendOTP({ email: email });
@@ -77,6 +79,7 @@ const VerifyUser = () => {
       console.log(error);
     }
   };
+  
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     // console.log(data)
     const userInfo = {
