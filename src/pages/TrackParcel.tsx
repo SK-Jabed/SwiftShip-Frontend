@@ -76,8 +76,11 @@ const TrackParcel = ({ className, ...props }: React.ComponentProps<"div">) => {
       trackingId: "",
     },
   });
+
   // console.log(trackingId)
+
   const { data: parcel } = useTrackParcelStatusQuery(trackingId);
+  
   if (isLoading) {
     return <Loader2 />;
   }

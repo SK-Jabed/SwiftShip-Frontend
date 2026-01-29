@@ -63,9 +63,11 @@ const UpdateStatus = () => {
       };
       console.log(updateData);
       const res = await updateParcelStatus({ parcelId, updateData }).unwrap();
+
       if (res?.success) {
         toast.success(res.message);
       }
+
       // console.log(res)
     } catch (error: any) {
       console.log(error);
@@ -82,7 +84,9 @@ const UpdateStatus = () => {
         deliveryPersonId: user?.data?.user?._id,
         trackingId: id,
       };
+
       const res = await collectCODAMount(data).unwrap();
+      
       if (res?.success) {
         toast.success(res?.data?.message);
       }
