@@ -79,9 +79,8 @@ const VerifyUser = () => {
       console.log(error);
     }
   };
-  const newFunctionForRegister = () => {
-
-  }
+  
+  // const newFunctionForRegister = () => {};
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     // console.log(data)
