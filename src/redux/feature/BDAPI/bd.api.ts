@@ -20,8 +20,7 @@ export const bdApi = createApi({
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
+// Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
 export const {
   useGetAllDivisionsQuery,
   useGetAllDistrictsQuery,

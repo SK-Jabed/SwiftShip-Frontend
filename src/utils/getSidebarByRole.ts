@@ -6,8 +6,6 @@ import { SenderRoutesItems } from "@/routes/SenderRoutesItems";
 import type { TRole } from "@/types/route.type";
 
 const getSidebarByRole = (role: TRole) => {
-  // console.log(role)
-
   switch (role) {
     case Role.ADMIN:
       return [...AdminRoutes];
