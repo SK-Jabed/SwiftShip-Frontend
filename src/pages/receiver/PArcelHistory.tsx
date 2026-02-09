@@ -13,13 +13,13 @@ import {
 const PArcelHistory = () => {
   const { data: user, isLoading } = useGetMeQuery(undefined);
   const { data: parcels } = useIncomingParcelQuery(user?.data?.user?.phone);
-  
+
   if (isLoading) {
     return <Loader2Icon />;
   }
 
   const notConfirmed = parcels?.data?.filter(
-    (parcel: { status: string }) => parcel.status == "CONFIRMED"
+    (parcel: { status: string }) => parcel.status == "CONFIRMED",
   );
 
   // console.log(notConfirmed)
@@ -55,7 +55,7 @@ const PArcelHistory = () => {
                     updatedAt: string;
                   }[];
                 },
-                index: number
+                index: number,
               ) => (
                 <TableRow key={index}>
                   <TableCell className="border-2 dark:bg-background bg-orange-50">
@@ -75,9 +75,8 @@ const PArcelHistory = () => {
                   </TableCell>
                   <TableCell className="border-2 dark:bg-background bg-yellow-50">
                     {new Date(
-                      item.trackingEvents[
-                        item.trackingEvents.length - 1
-                      ].updatedAt
+                      item.trackingEvents[item.trackingEvents.length - 1]
+                        .updatedAt,
                     ).toLocaleString("en-US", {
                       year: "numeric",
                       month: "short",
@@ -88,7 +87,7 @@ const PArcelHistory = () => {
                     })}
                   </TableCell>
                 </TableRow>
-              )
+              ),
             )}
           </TableBody>
         </Table>

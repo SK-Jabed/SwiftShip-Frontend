@@ -26,9 +26,9 @@ const IncomingParcels = () => {
   }
 
   const notConfirmed = parcels?.data?.filter(
-    (parcel: { status: string }) => parcel.status !== "CONFIRMED"
+    (parcel: { status: string }) => parcel.status !== "CONFIRMED",
   );
-  
+
   // console.log( notConfirmed)
 
   const handleConfirm = async (item: {
@@ -47,7 +47,7 @@ const IncomingParcels = () => {
         phone,
       };
       // console.log(data)
-      
+
       const res = await confirmDelivery(data).unwrap();
       console.log(res);
 
@@ -90,7 +90,7 @@ const IncomingParcels = () => {
                   paymentStatus: string;
                   paymentMethod: string;
                 },
-                index: number
+                index: number,
               ) => (
                 <TableRow key={index}>
                   <TableCell className="border-2 dark:bg-background bg-orange-50 ">
@@ -132,7 +132,7 @@ const IncomingParcels = () => {
                     </ConfirmDialogue>
                   </TableCell>
                 </TableRow>
-              )
+              ),
             )}
           </TableBody>
         </Table>
