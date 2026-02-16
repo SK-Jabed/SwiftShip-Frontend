@@ -80,7 +80,7 @@ const TrackParcel = ({ className, ...props }: React.ComponentProps<"div">) => {
   // console.log(trackingId)
 
   const { data: parcel } = useTrackParcelStatusQuery(trackingId);
-  
+
   if (isLoading) {
     return <Loader2 />;
   }
@@ -177,7 +177,7 @@ const TrackParcel = ({ className, ...props }: React.ComponentProps<"div">) => {
     <div
       className={cn(
         "min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50  dark:from-background dark:via-muted/95 dark:to-card py-8 px-4",
-        className
+        className,
       )}
       {...props}
     >
@@ -264,7 +264,7 @@ const TrackParcel = ({ className, ...props }: React.ComponentProps<"div">) => {
                     <div
                       className={cn(
                         "inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium",
-                        getStatusColor(parcelData.status)
+                        getStatusColor(parcelData.status),
                       )}
                     >
                       <PackageIcon size={16} />
