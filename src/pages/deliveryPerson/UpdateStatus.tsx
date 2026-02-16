@@ -54,7 +54,7 @@ const UpdateStatus = () => {
     }
 
     // console.log(`Update parcel ${id} to status: ${newStatus}`)
-    
+
     try {
       const parcelId = id;
       const updateData = {
@@ -86,7 +86,7 @@ const UpdateStatus = () => {
       };
 
       const res = await collectCODAMount(data).unwrap();
-      
+
       if (res?.success) {
         toast.success(res?.data?.message);
       }
