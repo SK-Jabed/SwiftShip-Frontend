@@ -80,11 +80,11 @@ const VerifyUser = () => {
     }
   };
   
-
   // const newFunctionForRegister = () => {};
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     // console.log(data)
+
     const userInfo = {
       email,
       otp: data.pin,
@@ -92,7 +92,7 @@ const VerifyUser = () => {
 
     try {
       const res = await verifyOTP(userInfo).unwrap();
-      // console.log(res)
+      
       if (res?.success) {
         toast.success("OTP Verified");
         navigate("/login");
