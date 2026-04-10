@@ -49,7 +49,6 @@ const formSchema = z
     path: ["confirmPassword"],
   });
 
-
 export function RegisterForm() {
   const id = useId();
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -84,7 +83,7 @@ export function RegisterForm() {
       toast.error("Error occures", error.message);
     }
   }
-  
+
   return (
     <div className="">
       <Card className="overflow-hidden p-0 ">
